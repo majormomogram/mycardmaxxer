@@ -11,7 +11,7 @@ export default function Layout() {
     <div className="min-h-screen flex">
       <aside className="w-60 border-r border-gray-800 bg-gray-950/50 flex flex-col">
         <div className="px-6 py-6 border-b border-gray-800">
-          <div className="text-white font-bold text-lg">CY Cards</div>
+          <div className="text-white font-bold text-lg">mycardmaxxer</div>
           <div className="text-[11px] text-gray-500 mt-0.5">Malaysian card tracker</div>
         </div>
         <nav className="flex-1 px-3 py-4 space-y-1">

@@ -3,7 +3,25 @@
  * All persistent reads/writes go through here. Components never touch localStorage directly.
  */
 
-const PREFIX = 'cycards.'
+const PREFIX = 'mycardmaxxer.'
+const LEGACY_PREFIX = 'cycards.'
+
+// One-time migration: copy any legacy cycards.* keys into mycardmaxxer.* and remove the old.
+function migrateLegacyKeys() {
+  if (typeof localStorage === 'undefined') return
+  let migrated = 0
+  for (const k of Object.keys(localStorage)) {
+    if (!k.startsWith(LEGACY_PREFIX)) continue
+    const newKey = PREFIX + k.slice(LEGACY_PREFIX.length)
+    if (localStorage.getItem(newKey) == null) {
+      localStorage.setItem(newKey, localStorage.getItem(k))
+      migrated++
+    }
+    localStorage.removeItem(k)
+  }
+  if (migrated > 0) console.info(`mycardmaxxer: migrated ${migrated} legacy keys`)
+}
+migrateLegacyKeys()
 
 export function read(key, fallback) {
   try {

@@ -1,4 +1,4 @@
-# CY Cards — Malaysian credit card tracker
+# mycardmaxxer — Malaysian credit card tracker
 
 Personal dashboard for Malaysian credit card benefits, perk usage, and spend-toward-cap progress. Built for Alliance Visa Infinite, UOB One Card Classic, and AmBank Visa Signature, but easily extensible.
 

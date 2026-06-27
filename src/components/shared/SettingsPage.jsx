@@ -10,7 +10,7 @@ export default function SettingsPage() {
     const wallet = read('wallet', [])
     const progress = read('benefit_progress', [])
     const totalBytes = keys.reduce((sum, k) => {
-      const raw = localStorage.getItem('cycards.' + k)
+      const raw = localStorage.getItem('mycardmaxxer.' + k)
       return sum + (raw?.length || 0)
     }, 0)
     return {
@@ -43,7 +43,7 @@ export default function SettingsPage() {
     const a = document.createElement('a')
     a.href = url
     const date = new Date().toISOString().slice(0, 10)
-    a.download = `cycards-export-${date}.json`
+    a.download = `mycardmaxxer-export-${date}.json`
     a.click()
     URL.revokeObjectURL(url)
   }
@@ -125,7 +125,7 @@ export default function SettingsPage() {
       {stats.keys.length > 0 && (
         <Section title="Storage keys">
           <ul className="text-xs text-gray-500 font-mono space-y-0.5">
-            {stats.keys.map(k => <li key={k}>cycards.{k}</li>)}
+            {stats.keys.map(k => <li key={k}>mycardmaxxer.{k}</li>)}
           </ul>
         </Section>
       )}
